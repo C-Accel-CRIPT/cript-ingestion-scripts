@@ -62,16 +62,6 @@ def get_inventory(inventory_name, group, collection, api, public):
     )
 
     # Save inventory
-    # try:
-    #     api.save(inventory, max_level=0)
-    #     print(f"Created Inventory: {inventory.name}")
-    # except cript.exceptions.DuplicateNodeError:
-    #     # Fetch inventory from the DB if it already exists
-    #     inventory = api.get(
-    #         cript.Inventory, {"name": inventory.name, "group": group.uid}, max_level=0
-    #     )
-    #     print(f"Found existing inventory: {inventory.name}")
-
     api.save(inventory, update_existing=True, max_level=0)
 
     return inventory
@@ -91,18 +81,6 @@ def get_experiment(experiment_name, group, col, api):
     experiment = cript.Experiment(collection=col, name=experiment_name)
 
     # Save inventory
-    # try:
-    #     api.save(experiment, max_level=0)
-    #     print(f"Created Experiment: {experiment.name}")
-    # except cript.exceptions.DuplicateNodeError:
-    #     # Fetch inventory from the DB if it already exists
-    #     experiment = api.get(
-    #         cript.Experiment,
-    #         {"name": experiment.name, "collection": col.uid, "group": group.uid},
-    #         max_level=0,
-    #     )
-    #     print(f"Found existing experiment: {experiment.name}")
-
     api.save(experiment, update_existing=True, max_level=0)
 
     return experiment
